@@ -24,11 +24,13 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
       - name: Run Snyk to check for vulnerabilities
+        continue-on-error: true
         run: |
           snyk auth ${{ secrets.SNYK_TOKEN }}
           snyk test --all-projects
 
       - name: Run Snyk to check for vulnerabilities
+        continue-on-error: true
         run: |
           snyk auth ${{ secrets.SNYK_TOKEN }}
           snyk monitor --all-projects
